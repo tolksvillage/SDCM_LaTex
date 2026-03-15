@@ -1,0 +1,320 @@
+
+\chapter{Methoden}
+\section*{Step 1 -- Vollständige mathematische Struktur}
+ 
+F\"{u}r jedes Gen $|g_i\rangle$ bzw.\ Sample $|s_j\rangle$ als initiales Repr\"{a}sentant
+wird folgende Prozedur durchgef\"{u}hrt.
+ 
+% ---------------------------------------------------------------
+\subsection*{Das standardisierte Restsignal $M^{\mathcal{S}}_{k-1}$}
+ 
+Zu Beginn jeder Detektionsiteration $k$ liegt das aktuelle Restsignal
+$M_{k-1} \in \mathbb{R}^{m \times n}$ vor (f\"{u}r $k=1$ ist das die Eingabematrix
+$M_0$).  Daraus wird das \emph{standardisierte Signal} $M^{\mathcal{S}}_{k-1}$
+berechnet, das als Grundlage f\"{u}r die initialen Gewichte dient.
+ 
+\paragraph{Motivation.}
+In einem hochdimensionalen Raum k\"{o}nnen Gene (oder Samples), die in
+allen Dimensionen \"{a}hnlich stark exprimiert sind, leicht f\"{a}lschlicherweise
+als Signaturkandidaten erscheinen -- sie haben eine hohe $\ell^2$-Norm,
+obwohl ihr Signal gleichm\"{a}{\ss}ig \"{u}ber alle Dimensionen verteilt ist und
+damit typisch f\"{u}r Rauschen ist.
+Das Ziel der Standardisierung ist es, alle Gen-Vektoren
+\emph{und} alle Sample-Vektoren gleichzeitig auf Einheitsl\"{a}nge
+(bez\"{u}glich der un-zentrierten Varianz) zu bringen.
+Dadurch erhalten Gene bzw.\ Samples, deren Signal auf wenige Dimensionen
+konzentriert ist (pures Signal), einen h\"{o}heren relativen
+Standardisierungskoeffizienten als solche mit gleichf\"{o}rmig verteiltem
+Signal (Rauschen).
+ 
+\paragraph{Konstruktion (Konvergenzschleife mit Index $\ell$).}
+Starte mit $M_{k-1,1} \coloneqq M_{k-1}$.  In jeder Iteration~$\ell$:
+\begin{enumerate}
+  \item Berechne die un-zentrierten empirischen Varianzen aller
+        Sample-Spalten:
+        \begin{equation}
+            \langle e^s_j \mid \mathcal{v}^s_\ell \rangle
+            \;\coloneqq\;
+            \frac{1}{m}\sum_{i=1}^{m}
+            \langle e^g_i \mid s_{j,\ell} \rangle^2
+            \;=\;
+            \frac{1}{m}\sum_{i=1}^{m} M_{k-1,\ell}(i,j)^2.
+        \end{equation}
+  \item Berechne analog die un-zentrierten Varianzen aller Gen-Zeilen:
+        \begin{equation}
+            \langle e^g_i \mid \mathcal{v}^g_\ell \rangle
+            \;\coloneqq\;
+            \frac{1}{n}\sum_{j=1}^{n}
+            \langle e^s_j \mid g_{i,\ell} \rangle^2
+            \;=\;
+            \frac{1}{n}\sum_{j=1}^{n} M_{k-1,\ell}(i,j)^2.
+        \end{equation}
+  \item Aktualisiere komponentenweise durch Division durch die
+        Quadratwurzeln des \"{a}u{\ss}eren Produkts
+        $|\mathcal{v}^g_\ell\rangle \otimes |\mathcal{v}^s_\ell\rangle$:
+        \begin{equation}
+            M_{k-1,\ell+1}(i,j)
+            \;\coloneqq\;
+            \frac{M_{k-1,\ell}(i,j)}
+                 {\sqrt{\langle e^g_i \mid \mathcal{v}^g_\ell\rangle
+                        \cdot
+                        \langle e^s_j \mid \mathcal{v}^s_\ell\rangle}}.
+        \end{equation}
+\end{enumerate}
+Iteriere bis alle un-zentrierten Varianzen aller Gene und Samples
+innerhalb eines $\varepsilon$ gleich~1 sind (Konvergenziteration~$\hat\ell$).
+Das Ergebnis ist
+\begin{equation}
+    M^{\mathcal{S}}_{k-1} \;\coloneqq\; M_{k-1,\hat\ell}.
+\end{equation}
+ 
+\paragraph{Interpretation.}
+Da die Standardisierung in beiden R\"{a}umen simultan erfolgt, liegen
+alle standardisierten Gen-Vektoren \emph{und} alle standardisierten
+Sample-Vektoren auf einer Sph\"{a}re in ihrem jeweiligen Raum.  Dabei gilt:
+\begin{itemize}
+  \item Gene, die in \emph{vielen} Samples \"{a}hnlich stark exprimiert sind,
+        erhalten kleine standardisierte Komponenten (typisches Rauschen).
+  \item Gene, deren Expression auf \emph{wenige} Samples konzentriert ist,
+        erhalten gro{\ss}e standardisierte Spitzenkomponenten
+        (potenzielles Signal).
+\end{itemize}
+Dieses Verhalten macht $M^{\mathcal{S}}_{k-1}$ zur idealen Grundlage f\"{u}r
+die Berechnung initialer Gewichte im folgenden Schritt.
+ 
+% ---------------------------------------------------------------
+\subsection*{1. Initiale Achsen}
+ 
+\begin{itemize}
+  \item F\"{u}r Gen $|g_i\rangle$ als Repr\"{a}sentant: setze
+        $|a^s\rangle \coloneqq |g_i\rangle$ als initiale Sample-Achse.
+  \item F\"{u}r Sample $|s_j\rangle$ als Repr\"{a}sentant: setze
+        $|a^g\rangle \coloneqq |s_j\rangle$ als initiale Gen-Achse.
+\end{itemize}
+ 
+% ---------------------------------------------------------------
+\subsection*{2. Initiale Gewichte aus $M^{\mathcal{S}}_{k-1}$}
+ 
+Die initialen Gewichte werden direkt aus dem standardisierten Signal
+abgeleitet.  F\"{u}r ein Gen $|g_i\rangle$ als Repr\"{a}sentant lauten die
+initialen Sample-Gewichte:
+\begin{equation}
+    \langle e^s_j \mid w^s_{\mathrm{initial}} \rangle
+    \;\coloneqq\;
+    \min\!\left(1,\;
+        \frac{\bigl|M^{\mathcal{S}}_{k-1}(i,j)\bigr|}
+             {0{,}8 \cdot \max_{j'}\bigl|M^{\mathcal{S}}_{k-1}(i,j')\bigr|}
+    \right).
+\end{equation}
+Analog f\"{u}r ein Sample $|s_j\rangle$ als Repr\"{a}sentant die initialen Gen-Gewichte:
+\begin{equation}
+    \langle e^g_i \mid w^g_{\mathrm{initial}} \rangle
+    \;\coloneqq\;
+    \min\!\left(1,\;
+        \frac{\bigl|M^{\mathcal{S}}_{k-1}(i,j)\bigr|}
+             {0{,}8 \cdot \max_{i'}\bigl|M^{\mathcal{S}}_{k-1}(i',j)\bigr|}
+    \right).
+\end{equation}
+ 
+% ---------------------------------------------------------------
+\subsection*{3. Vervollst\"{a}ndigung der Achsen (Gl.~6 \& 7)}
+ 
+Die Gen-Achse entsteht durch gewichtete Projektion aller anderen Gene
+auf das initiale Sample, und umgekehrt:
+\begin{align}
+    \langle e^g_{i'} \mid a^g \rangle
+    &\;\coloneqq\;
+    \frac{\langle g_{i'} \mid g_i \rangle^0_{|w^s_{\mathrm{initial}}\rangle}}
+         {\|w^s_{\mathrm{initial}}\|},
+    \\[6pt]
+    \langle e^s_{j'} \mid a^s \rangle
+    &\;\coloneqq\;
+    \frac{\langle s_{j'} \mid s_j \rangle^0_{|w^g_{\mathrm{initial}}\rangle}}
+         {\|w^g_{\mathrm{initial}}\|}.
+\end{align}
+Hierbei ist die gewichtete Projektion definiert als (Gl.~4):
+\begin{equation}
+    \langle x \mid a \rangle^0_{|w\rangle}
+    \;\coloneqq\;
+    \frac{\langle w \cdot x \mid w \cdot a \rangle}{\|w \cdot a\|}.
+\end{equation}
+ 
+% ---------------------------------------------------------------
+\subsection*{4. Erste Korrelationen und $p$-Werte (Gl.~8)}
+ 
+Unzentrierte gewichtete Korrelation (Gl.~3):
+\begin{equation}
+    [x \mid a]_{|w\rangle}
+    \;\coloneqq\;
+    \frac{\langle w \cdot x \mid w \cdot a \rangle}
+         {\|w \cdot x\| \cdot \|w \cdot a\|}.
+\end{equation}
+ 
+Korrelationen aller Gene mit der Sample-Achse und aller Samples mit
+der Gen-Achse:
+\begin{align}
+    \langle e^g_{i'} \mid r^g \rangle
+    &\;=\; [g_{i'} \mid a^s]_{|w^s_{\mathrm{initial}}\rangle},
+    \\[4pt]
+    \langle e^s_{j'} \mid r^s \rangle
+    &\;=\; [s_{j'} \mid a^g]_{|w^g_{\mathrm{initial}}\rangle}.
+\end{align}
+ 
+$p$-Werte via $t$-Statistik (Supp.~Note~2):
+\begin{equation}
+    t \;=\; \frac{r\,\sqrt{\nu}}{\sqrt{1 - r^2}},
+    \qquad
+    \nu^s = \sum_j \langle e^s_j \mid w^s \rangle - 2,
+    \quad
+    \nu^g = \sum_i \langle e^g_i \mid w^g \rangle - 2.
+\end{equation}
+Der $p$-Wert integriert nur den jeweiligen Schwanz der
+$t$-Verteilung mit $\nu$ Freiheitsgraden (einseitig entsprechend
+dem Vorzeichen von $t$).
+ 
+% ---------------------------------------------------------------
+\subsection*{5. Signature Focus $|w^g\rangle,\,|w^s\rangle$ (Gl.~17--20)}
+ 
+Hilfsgr\"{o}{\ss}en (kombiniert aus Korrelation und $p$-Wert):
+\begin{align}
+    x^s_j &\;\coloneqq\; \bigl|\langle e^s_j \mid r^s \rangle\bigr|
+                        \cdot \bigl(1 - \langle e^s_j \mid p^s \rangle\bigr)^2,
+    \\[4pt]
+    x^g_i &\;\coloneqq\; \bigl|\langle e^g_i \mid r^g \rangle\bigr|
+                        \cdot \bigl(1 - \langle e^g_i \mid p^g \rangle\bigr)^2.
+\end{align}
+ 
+Normierung auf Maximalwert (Werte $\geq 50\%$ des Maximums erhalten
+volles Gewicht):
+\begin{align}
+    y^s_j &\;\coloneqq\; \min\!\left(1,\;
+        \frac{x^s_j}{\tfrac{1}{2}\max_{j'} x^s_{j'}}\right),
+    \\[4pt]
+    y^g_i &\;\coloneqq\; \min\!\left(1,\;
+        \frac{x^g_i}{\tfrac{1}{2}\max_{i'} x^g_{i'}}\right).
+\end{align}
+ 
+Spezifizit\"{a}tsfilter (Nullsetzung schwacher/unsignifikanter Eintr\"{a}ge):
+\begin{align}
+    \langle e^s_j \mid w^s \rangle
+    &\;\coloneqq\;
+    \begin{cases}
+        y^s_j
+        & \text{falls } y^s_j \;\geq\;
+          \dfrac{2}{3n}\bigl|\{j' : y^s_{j'} \geq y^s_j\}\bigr|,
+        \\[4pt]
+        0 & \text{sonst},
+    \end{cases}
+    \\[8pt]
+    \langle e^g_i \mid w^g \rangle
+    &\;\coloneqq\;
+    \begin{cases}
+        y^g_i
+        & \text{falls } y^g_i \;\geq\;
+          \dfrac{2}{3m}\bigl|\{i' : y^g_{i'} \geq y^g_i\}\bigr|,
+        \\[4pt]
+        0 & \text{sonst}.
+    \end{cases}
+\end{align}
+ 
+Zus\"{a}tzlich wird der \emph{extended signature focus}
+$|v^g\rangle,\,|v^s\rangle$ analog berechnet, jedoch mit einer
+oberen Schwelle von $100\%$ (statt $50\%$) und einer unteren
+Spezifizit\"{a}tsschwelle von $0{,}4$ (statt $\tfrac{2}{3}$).
+Er dient der Gr\"{o}{\ss}ensch\"{a}tzung der Signatur.
+ 
+% ---------------------------------------------------------------
+\subsection*{6. Verfeinerte Achsen}
+ 
+Mit den neuen Gewichten werden die Achsen erneut konstruiert:
+\begin{align}
+    \langle e^g_{i'} \mid a^g \rangle
+    &\;\leftarrow\;
+    \frac{\langle g_{i'} \mid g_i \rangle^0_{|w^s\rangle}}{\|w^s\|},
+    \\[4pt]
+    \langle e^s_{j'} \mid a^s \rangle
+    &\;\leftarrow\;
+    \frac{\langle s_{j'} \mid s_j \rangle^0_{|w^g\rangle}}{\|w^g\|}.
+\end{align}
+ 
+% ---------------------------------------------------------------
+\subsection*{7. Verfeinerte Korrelationen und $p$-Werte}
+ 
+\begin{align}
+    \langle e^g_{i'} \mid r^g \rangle
+    &\;=\; [g_{i'} \mid a^s]_{|w^s\rangle},
+    \\[4pt]
+    \langle e^s_{j'} \mid r^s \rangle
+    &\;=\; [s_{j'} \mid a^g]_{|w^g\rangle}.
+\end{align}
+$p$-Werte $|p^g\rangle$, $|p^s\rangle$ werden wie in Abschnitt~4
+aktualisiert.
+ 
+% ---------------------------------------------------------------
+\subsection*{8. Signaturfunktional (Gl.~22--26)}
+ 
+Aus dem \emph{extended signature focus} $|v^g\rangle,\,|v^s\rangle$:
+ 
+\textbf{Gr\"{o}{\ss}ensch\"{a}tzung:}
+\begin{equation}
+    \mathcal{m}_k \;\coloneqq\; \sum_{i=1}^m v^g_i,
+    \qquad
+    \mathcal{n}_k \;\coloneqq\; \sum_{j=1}^n v^s_j.
+\end{equation}
+ 
+\textbf{Kombinierte Signaturgr\"{o}{\ss}e} (90\,\% Gewicht auf die kleinere
+Dimension, um schmale Streifen-Artefakte zu benachteiligen):
+\begin{equation}
+    s_k \;\coloneqq\;
+    \sqrt{\min(\mathcal{m}_k,\,\mathcal{n}_k)^{0{,}9}
+          \cdot \max(\mathcal{m}_k,\,\mathcal{n}_k)^{0{,}1}}.
+\end{equation}
+ 
+\textbf{Mittlere absolute Korrelationen:}
+\begin{equation}
+    \bar{r}^g_k
+    \;\coloneqq\;
+    \frac{\displaystyle\sum_{i=1}^m v^g_i\,|r^g_i|}{\mathcal{m}_k},
+    \qquad
+    \bar{r}^s_k
+    \;\coloneqq\;
+    \frac{\displaystyle\sum_{j=1}^n v^s_j\,|r^s_j|}{\mathcal{n}_k}.
+\end{equation}
+ 
+\textbf{Kombinierte mittlere Korrelation:}
+\begin{equation}
+    \mathcal{r}_k
+    \;\coloneqq\;
+    \frac{\mathcal{n}_k\,\bar{r}^g_k + \mathcal{m}_k\,\bar{r}^s_k}
+         {\mathcal{n}_k + \mathcal{m}_k}.
+\end{equation}
+ 
+\textbf{Signaturfunktional} (angelehnt an die $t$-Statistik einer
+Korrelation, um konsistente Signaturen zu bevorzugen):
+\begin{equation}
+    \mathcal{E}[|a^g\rangle, |a^s\rangle]
+    \;\coloneqq\;
+    s_k \cdot \frac{\mathcal{r}_k}{\sqrt{1 - \mathcal{r}_k^2}}.
+\end{equation}
+ 
+% ---------------------------------------------------------------
+\subsection*{9. Qualifikation und Auswahl}
+ 
+Ein Achsenpaar $(|a^g\rangle, |a^s\rangle)$ qualifiziert sich, wenn
+alle folgenden Bedingungen erf\"{u}llt sind:
+ 
+\begin{itemize}
+    \item \textbf{Signalst\"{a}rke:} $p_s \leq \alpha_s$
+          mit Bonferroni-korrigiertem Schwellwert
+          $\alpha_s = 10^{-5}/(m+n)$.
+    \item \textbf{Korrelationen:} $p_r \leq \alpha_r$
+          mit $\alpha_r = 10^{-10}/(m+n)$.
+    \item \textbf{Mindestkonsistenz:} $\mathcal{r}_k \geq 0{,}4$.
+    \item \textbf{Mindestgr\"{o}{\ss}e:}
+          $\mathcal{m}_k \geq 0{,}5\log_2 n$
+          und $\mathcal{n}_k \geq 0{,}5\log_2 m$.
+\end{itemize}
+ 
+Aus allen qualifizierten Achsenpaaren wird dasjenige mit maximalem
+$\mathcal{E}$ an \textbf{Step~2} \"{u}bergeben.
+Falls kein Gen und kein Sample qualifiziert, terminiert SDCM.
