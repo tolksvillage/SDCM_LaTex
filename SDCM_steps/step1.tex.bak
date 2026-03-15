@@ -2,8 +2,8 @@
 \chapter{Methoden}
 \section*{Step 1 -- Vollständige mathematische Struktur}
  
-F\"{u}r jedes Gen $|g_i\rangle$ bzw.\ Sample $|s_j\rangle$ als initiales Repr\"{a}sentant
-wird folgende Prozedur durchgef\"{u}hrt.
+Für jedes Gen $|g_i\rangle$ bzw.\ Sample $|s_j\rangle$ als initiales Repräsentant
+wird folgende Prozedur durchgeführt.
  
 % ---------------------------------------------------------------
 \subsection*{Das standardisierte Restsignal $M^{\mathcal{S}}_{k-1}$}
@@ -14,18 +14,18 @@ $M_0$).  Daraus wird das \emph{standardisierte Signal} $M^{\mathcal{S}}_{k-1}$
 berechnet, das als Grundlage f\"{u}r die initialen Gewichte dient.
  
 \paragraph{Motivation.}
-In einem hochdimensionalen Raum k\"{o}nnen Gene (oder Samples), die in
-allen Dimensionen \"{a}hnlich stark exprimiert sind, leicht f\"{a}lschlicherweise
-als Signaturkandidaten erscheinen -- sie haben eine hohe $\ell^2$-Norm,
-obwohl ihr Signal gleichm\"{a}{\ss}ig \"{u}ber alle Dimensionen verteilt ist und
-damit typisch f\"{u}r Rauschen ist.
+In einem hochdimensionalen Raum können Gene oder Samples, die in
+allen Dimensionen ähnlich stark exprimiert sind, leicht fälschlicherweise
+als Signaturkandidaten erscheinen, sie haben eine hohe $\ell^2$-Norm,
+obwohl ihr Signal gleichmässig über alle Dimensionen verteilt ist und
+damit typisch für Rauschen ist.
 Das Ziel der Standardisierung ist es, alle Gen-Vektoren
-\emph{und} alle Sample-Vektoren gleichzeitig auf Einheitsl\"{a}nge
-(bez\"{u}glich der un-zentrierten Varianz) zu bringen.
+\emph{und} alle Sample-Vektoren gleichzeitig auf Einheitslänge
+bezüglich der unzentrierten Varianz zu bringen.
 Dadurch erhalten Gene bzw.\ Samples, deren Signal auf wenige Dimensionen
-konzentriert ist (pures Signal), einen h\"{o}heren relativen
-Standardisierungskoeffizienten als solche mit gleichf\"{o}rmig verteiltem
-Signal (Rauschen).
+konzentriert ist, einen höheren relativen
+Standardisierungskoeffizienten als solche mit gleichförmig verteiltem
+Signal (Rauschen). Der folgende Ansatz verfolgt über Konvergenz die gleichzeitige Normierung der Spalten und Zeilen der Matrix $M_{k-1} \in \mathbb{R}^{m \times n}$.
  
 \paragraph{Konstruktion (Konvergenzschleife mit Index $\ell$).}
 Starte mit $M_{k-1,1} \coloneqq M_{k-1}$.  In jeder Iteration~$\ell$:
@@ -136,8 +136,13 @@ Hierbei ist die gewichtete Projektion definiert als (Gl.~4):
 \begin{equation}
     \langle x \mid a \rangle^0_{|w\rangle}
     \;\coloneqq\;
-    \frac{\langle w \cdot x \mid w \cdot a \rangle}{\|w \cdot a\|}.
+    \frac{\langle w \odot x \mid w \odot a \rangle}{\|\, w \odot a \,\|}.
 \end{equation}
+
+Dabei bezeichnet $\odot$ das komponentenweise Produkt (Hadamard-Produkt) zweier Vektoren, d.\,h.
+\[
+w \odot x \;=\; (w_1 x_1,\; w_2 x_2,\; \dots,\; w_n x_n).
+\]
  
 % ---------------------------------------------------------------
 \subsection*{4. Erste Korrelationen und $p$-Werte (Gl.~8)}
@@ -292,7 +297,7 @@ Dimension, um schmale Streifen-Artefakte zu benachteiligen):
 \textbf{Signaturfunktional} (angelehnt an die $t$-Statistik einer
 Korrelation, um konsistente Signaturen zu bevorzugen):
 \begin{equation}
-    \mathcal{E}[|a^g\rangle, |a^s\rangle]
+    \xi[|a^g\rangle, |a^s\rangle]
     \;\coloneqq\;
     s_k \cdot \frac{\mathcal{r}_k}{\sqrt{1 - \mathcal{r}_k^2}}.
 \end{equation}

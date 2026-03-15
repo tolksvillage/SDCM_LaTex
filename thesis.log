@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  15 MAR 2026 18:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  16 MAR 2026 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2440,11 +2440,6 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (5.01743pt too wide) in paragraph at lines 72--75
-\T1/lmr/m/n/12 (-20) liegen alle stan-dar-d-isierten Gen-Vektoren \T1/lmr/m/sl/
-12 (-20) und \T1/lmr/m/n/12 (-20) alle stan-dar-d-isierten Sample-Vektoren
- []
-
 [2
 
 
@@ -2453,15 +2448,20 @@ Overfull \hbox (5.01743pt too wide) in paragraph at lines 72--75
 {C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}{C:/U
 sers/Aaron/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users
 /Aaron/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-[3] [4]
-Overfull \hbox (8.57245pt too wide) in paragraph at lines 307--310
+Overfull \hbox (5.01743pt too wide) in paragraph at lines 72--75
+\T1/lmr/m/n/12 (-20) liegen alle stan-dar-d-isierten Gen-Vektoren \T1/lmr/m/sl/
+12 (-20) und \T1/lmr/m/n/12 (-20) alle stan-dar-d-isierten Sample-Vektoren
+ []
+
+[3] [4] [5]
+Overfull \hbox (8.57245pt too wide) in paragraph at lines 312--315
 []\T1/lmr/bx/n/12 (-20) Signalstärke: $\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^
 T \OML/lmm/m/it/12 []$ \T1/lmr/m/n/12 (-20) mit Bonferroni-korrigiertem Schwel
 l-w-ert $\OML/lmm/m/it/12 [] \OT1/lmr/m/n/12 (-20) = 10[]\OML/lmm/m/it/12 =\OT
 1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 m \OT1/lmr/m/n/12 (-20) +
  []
 
-[5]) [6]
+) [6]
 
 Package silence Warning: There were 5 warning(s) and 0 error(s).
 (silence)                I've killed 4 warning(s) and 0 error(s).
@@ -2476,13 +2476,13 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62383 strings out of 467870
- 1447331 string characters out of 5418354
- 2327695 words of memory out of 5000000
- 89935 multiletter control sequences out of 15000+600000
- 752468 words of font info for 212 fonts, out of 8000000 for 9000
+ 62381 strings out of 467870
+ 1446620 string characters out of 5418354
+ 2324690 words of memory out of 5000000
+ 89937 multiletter control sequences out of 15000+600000
+ 752276 words of font info for 210 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,23n,123p,1197b,1264s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 112i,23n,123p,1197b,1205s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi720\
 cmbrmb10.pk> <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbrig
 ht/dpi600\cmbrbx10.pk> <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/pub
@@ -2506,7 +2506,7 @@ rams/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Aaron/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Aaron/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qzcmi.pfb><C:/Users/Aaron/
 AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on thesis.pdf (6 pages, 325613 bytes).
+Output written on thesis.pdf (6 pages, 326385 bytes).
 PDF statistics:
  270 PDF objects out of 1000 (max. 8388607)
  62 named destinations out of 1000 (max. 500000)
