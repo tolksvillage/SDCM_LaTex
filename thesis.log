@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  16 MAR 2026 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  16 MAR 2026 18:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2048,6 +2048,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@b@toks=\toks66
 ))
 \argumentbox=\box139
+\argumentwbox=\box140
 )
 (preamble/math/spacing.tex
 \halfhphantomlength=\skip143
@@ -2100,7 +2101,7 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfil
 l.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box140
+\l__tikzfill_img_box=\box141
 ))
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
 w.code.tex
@@ -2113,9 +2114,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.8.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 2 on input line 23.
-\tcb@testbox=\box141
-\tcb@totalupperbox=\box142
-\tcb@totallowerbox=\box143
+\tcb@testbox=\box142
+\tcb@totalupperbox=\box143
+\tcb@totallowerbox=\box144
 )
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.c
 ode.tex
@@ -2179,7 +2180,7 @@ Package keytheorems Warning: The key 'tcolorbox-no-titlebar' does not
 (keytheorems)                currently work with tagging. Ignoring this key on
 (keytheorems)                line 34.
 
-\proofsmallsquare=\box144
+\proofsmallsquare=\box145
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
 3.
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
@@ -2252,7 +2253,7 @@ ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count631
 \scratchdimen=\dimen429
-\scratchbox=\box145
+\scratchbox=\box146
 \nofMPsegments=\count632
 \nofMParguments=\count633
 \everyMPshowfont=\toks73
@@ -2454,15 +2455,15 @@ Overfull \hbox (5.01743pt too wide) in paragraph at lines 72--75
  []
 
 [3] [4]
-Overfull \hbox (6.61539pt too wide) in paragraph at lines 219--228
+Overfull \hbox (17.28624pt too wide) in paragraph at lines 221--230
 []\T1/lmr/m/n/12 (-20) Die Wahrschein-lichkeits-dichte $\OML/lmm/m/it/12 ^^Z[]\
-OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 t\OT1/lmr/m/n/12 (-20) )$ \T1/lmr/m/n/12
- (-20) der Student-$\OML/lmm/m/it/12 t$\T1/lmr/m/n/12 (-20) -Verteilung gibt an
-, wie wahrschein-
+OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 t[]\OT1/lmr/m/n/12 (-20) )$ \T1/lmr/m/n/
+12 (-20) der Student-$\OML/lmm/m/it/12 t$\T1/lmr/m/n/12 (-20) -Verteilung gibt 
+an, wie wahrschein-
  []
 
 [5] [6]
-Overfull \hbox (8.57245pt too wide) in paragraph at lines 378--381
+Overfull \hbox (8.57245pt too wide) in paragraph at lines 420--423
 []\T1/lmr/bx/n/12 (-20) Signalstärke: $\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^
 T \OML/lmm/m/it/12 []$ \T1/lmr/m/n/12 (-20) mit Bonferroni-korrigiertem Schwel
 l-w-ert $\OML/lmm/m/it/12 [] \OT1/lmr/m/n/12 (-20) = 10[]\OML/lmm/m/it/12 =\OT
@@ -2484,11 +2485,11 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62403 strings out of 467870
- 1446873 string characters out of 5418354
- 2324695 words of memory out of 5000000
- 89939 multiletter control sequences out of 15000+600000
- 752992 words of font info for 218 fonts, out of 8000000 for 9000
+ 62410 strings out of 467870
+ 1446951 string characters out of 5418354
+ 2343393 words of memory out of 5000000
+ 89947 multiletter control sequences out of 15000+600000
+ 752723 words of font info for 215 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  112i,23n,123p,1197b,1205s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi720\
@@ -2515,9 +2516,9 @@ grams/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Aaron/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Aaron/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qzcmi.pfb><C:/Users/Aaron
 /AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on thesis.pdf (7 pages, 341710 bytes).
+Output written on thesis.pdf (7 pages, 345701 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
- 58515 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 71 named destinations out of 1000 (max. 500000)
+ 58523 words of extra memory for PDF output out of 61914 (max. 10000000)
 

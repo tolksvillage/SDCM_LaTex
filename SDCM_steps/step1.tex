@@ -1,6 +1,6 @@
 
 \chapter{Methoden}
-\section*{Step 1 -- Vollständige mathematische Struktur}
+\section{Step 1 -- Search Strategy}
  
 Für jedes Gen $|g_i\rangle$ bzw.\ Sample $|s_j\rangle$ als initiales Repräsentant
 wird folgende Prozedur durchgeführt.
@@ -83,7 +83,7 @@ Dieses Verhalten macht $M^{\mathcal{S}}_{k-1}$ zur idealen Grundlage f\"{u}r
 die Berechnung initialer Gewichte im folgenden Schritt.
  
 % ---------------------------------------------------------------
-\subsection*{1. Initiale Achsen}
+\subsection*{1.1.1 Initiale Achsen}
  
 \begin{itemize}
   \item F\"{u}r Gen $|g_i\rangle$ als Repr\"{a}sentant: setze
@@ -93,7 +93,7 @@ die Berechnung initialer Gewichte im folgenden Schritt.
 \end{itemize}
  
 % ---------------------------------------------------------------
-\subsection*{2. Initiale Gewichte aus $M^{\mathcal{S}}_{k-1}$}
+\subsection*{1.1.2. Initiale Gewichte aus $M^{\mathcal{S}}_{k-1}$}
  
 Die initialen Gewichte werden direkt aus dem standardisierten Signal
 abgeleitet.  F\"{u}r ein Gen $|g_i\rangle$ als Repr\"{a}sentant lauten die
@@ -117,7 +117,7 @@ Analog f\"{u}r ein Sample $|s_j\rangle$ als Repr\"{a}sentant die initialen Gen-G
 \end{equation}
  
 % ---------------------------------------------------------------
-\subsection*{3. Vervollst\"{a}ndigung der Achsen (Gl.~6 \& 7)}
+\subsection*{1.1.3 Vervollst\"{a}ndigung der Achsen (Gl.~6 \& 7)}
  
 Die Gen-Achse entsteht durch gewichtete Projektion aller anderen Gene
 auf das initiale Sample, und umgekehrt:
@@ -148,7 +148,7 @@ w \odot x \;=\; (w_1 x_1,\; w_2 x_2,\; \dots,\; w_n x_n).
 \]
  
 % ---------------------------------------------------------------
-\subsection*{4. Erste Korrelationen und $p$-Werte (Gl.~8)}
+\subsection*{1.1.4 Erste Korrelationen und $p$-Werte (Gl.~8)}
  
 Unzentrierte gewichtete Korrelation (Gl.~3):
 \begin{equation}
@@ -173,7 +173,7 @@ der Gen-Achse:
     &\;=\; [s_{j'} \mid a^g]_{|w^g_{\mathrm{initial}}\rangle}.
 \end{align}
  
-\subsubsection{Die $p$-Werte - Supplementary Note 2}
+\subsubsection*{Die $p$-Werte - Supplementary Note 2}
 
 
 In niedrigdimensionalen Räumen, d.h.\ wenn der effektive Signature
@@ -188,11 +188,13 @@ Für eine gewöhnliche (ungewichtete) Pearson-Korrelation $r$ über $n$
 Datenpunkte folgt unter der Nullhypothese (keine echte Korrelation)
 die Teststatistik
 \begin{equation}
-    t \;=\; \frac{r\,\sqrt{\nu}}{\sqrt{1 - r^2}}
+t^{\argumentw}
+=\frac{r^{\argumentw}\sqrt{\nu^{\argumentw}}}
+{\sqrt{1-(r^{\argumentw})^2}}
 \end{equation}
 exakt einer Student-$t$-Verteilung mit $\nu$ Freiheitsgraden, wobei
-$\nu = n - 2$. Die Subtraktion von 2 entsteht, weil beim Schätzen der
-Korrelation zwei Parameter aus den Daten geschätzt werden müssen: der
+$\nu = n - 2$ und $\argumentw$ markiert Index der $g$-Gene und $s$-Samples. Die Subtraktion von 2 entsteht, weil beim Schätzen der
+Korrelation zwei Parameter aus den Daten geschätzt werden müssen. Der
 Mittelwert von $x$ und der Mittelwert von $y$. Jeder geschätzte
 Parameter verbraucht einen Freiheitsgrad, sodass nach dieser Schätzung
 nur noch $n - 2$ wirklich unabhängige Informationen verbleiben.
@@ -216,35 +218,39 @@ Freiheitsgrade werden entsprechend ersetzt:
     \nu^g \;=\; \sum_i \langle e^g_i \mid w^g \rangle - 2.
 \end{equation}
 
-Die Wahrscheinlichkeitsdichte $\rho_\nu(t)$ der
+Die Wahrscheinlichkeitsdichte $\rho_{\nu^{\argumentw}}(t^{\argumentw})$ der
 Student-$t$-Verteilung gibt an, wie wahrscheinlich ein bestimmter
-Wert $t$ allein durch Zufall auftritt, wenn die Nullhypothese gilt:
+Wert $t^{\argumentw}$ allein durch Zufall auftritt, wenn die Nullhypothese gilt:
 \begin{equation}
-    \rho_\nu(t)
+    \rho_{\nu^{\argumentw}}(t^{\argumentw})
     \;=\;
-    \frac{\,\Gamma\!\left(\tfrac{\nu+1}{2}\right)\,}
-         {\sqrt{\nu\pi}\;\Gamma\!\left(\tfrac{\nu}{2}\right)}
-    \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}.
+    \frac{\,\Gamma\!\left(\tfrac{\nu^{\argumentw}+1}{2}\right)\,}
+         {\sqrt{\nu^{\argumentw}\pi}\;\Gamma\!\left(\tfrac{\nu^{\argumentw}}{2}\right)}
+    \left(1 + \frac{(t^{\argumentw})^2}{\nu^{\argumentw}}\right)^{-\frac{\nu^{\argumentw}+1}{2}}.
 \end{equation}
-Sie ist symmetrisch um $0$ und besitzt für kleine $\nu$ ausgeprägte
-Ränder (sogenannte \emph{fat tails}), da bei wenigen Datenpunkten
-extreme $t$-Werte durch Zufall häufiger auftreten. Der $p$-Wert ist
-die Fläche unter $\rho_\nu$ ab dem beobachteten $t$ bis in den
+Sie ist symmetrisch um $0$ und besitzt für kleine $\nu^{\argumentw}$ ausgeprägte
+Ränder (\emph{fat tails}), da bei wenigen Datenpunkten
+extreme $t^{\argumentw}$-Werte durch Zufall häufiger auftreten. Der $p$-Wert ist
+die Fläche unter $\rho_{\nu^{\argumentw}}$ ab dem beobachteten $t^{\argumentw}$ bis in den
 jeweiligen Schwanz, also die Wahrscheinlichkeit, durch Zufall einen
-mindestens so extremen $t$-Wert zu erhalten. Da $p$-Werte hier die
+mindestens so extremen $t^{\argumentw}$-Wert zu erhalten. Da $p$-Werte hier die
 Wahrscheinlichkeit quantifizieren, durch Zufall eine gleichgerichtete
 Korrelation mindestens dieser Stärke zu beobachten, integriert man
-nur den entsprechenden einseitigen Schwanz (Supp.~Note~2):
+nur den entsprechenden einseitigen Schwanz:
 \begin{equation}
-    p \;=\; \int_t^{\infty} \rho_\nu(t')\,dt'
-    \quad \text{für } t \geq 0,
+    p^{\argumentw}
+    \;=\;
+    \int_{t^{\argumentw}}^{\infty} \rho_{\nu^{\argumentw}}(t')\,dt'
+    \quad \text{für } t^{\argumentw} \ge 0,
     \qquad
-    p \;=\; \int_{-\infty}^{t} \rho_\nu(t')\,dt'
-    \quad \text{für } t \leq 0.
+    p^{\argumentw}
+    \;=\;
+    \int_{-\infty}^{t^{\argumentw}} \rho_{\nu^{\argumentw}}(t')\,dt'
+    \quad \text{für } t^{\argumentw} \le 0.
 \end{equation}
  
 % ---------------------------------------------------------------
-\subsection*{5. Signature Focus $|w^g\rangle,\,|w^s\rangle$ (Gl.~17--20)}
+\subsection*{1.1.5 Signature Focus $|w^g\rangle,\,|w^s\rangle$ (Gl.~17--20)}
  
 Hilfsgr\"{o}{\ss}en (kombiniert aus Korrelation und $p$-Wert):
 \begin{align}
@@ -287,15 +293,51 @@ Spezifizit\"{a}tsfilter (Nullsetzung schwacher/unsignifikanter Eintr\"{a}ge):
         0 & \text{sonst}.
     \end{cases}
 \end{align}
- 
+
 Zus\"{a}tzlich wird der \emph{extended signature focus}
-$|v^g\rangle,\,|v^s\rangle$ analog berechnet, jedoch mit einer
-oberen Schwelle von $100\%$ (statt $50\%$) und einer unteren
-Spezifizit\"{a}tsschwelle von $0{,}4$ (statt $\tfrac{2}{3}$).
-Er dient der Gr\"{o}{\ss}ensch\"{a}tzung der Signatur.
+$|v^g\rangle,\,|v^s\rangle$ berechnet, dessen Gewichte dieselbe
+Konstruktionslogik verwenden, jedoch mit lockereren Schwellen.
+W\"{a}hrend $|w^g\rangle,\,|w^s\rangle$ einen scharfen Kern
+identifizieren sollen (f\"{u}r die Achsenkonstruktion), dient
+$|v^g\rangle,\,|v^s\rangle$ der \textbf{Gr\"{o}{\ss}ensch\"{a}tzung
+der Signatur} -- ein zu strenger Filter w\"{u}rde die tats\"{a}chliche
+Ausdehnung des Musters systematisch untersch\"{a}tzen.
+
+\textbf{Normierung} (ohne Clamping auf $1$, obere Schwelle $100\%$):
+\begin{align}
+    \tilde{y}^s_j &\;\coloneqq\;
+        \frac{x^s_j}{\max_{j'} x^s_{j'}},
+    \\[4pt]
+    \tilde{y}^g_i &\;\coloneqq\;
+        \frac{x^g_i}{\max_{i'} x^g_{i'}}.
+\end{align}
+
+\textbf{Spezifizit\"{a}tsfilter} (mit reduzierter Schwelle $0{,}4$
+statt $\tfrac{2}{3}$):
+\begin{align}
+    \langle e^s_j \mid v^s \rangle
+    &\;\coloneqq\;
+    \begin{cases}
+        \tilde{y}^s_j
+        & \text{falls } \tilde{y}^s_j \;\geq\;
+          \dfrac{0{,}4}{n}\bigl|\{j' : \tilde{y}^s_{j'} \geq \tilde{y}^s_j\}\bigr|,
+        \\[4pt]
+        0 & \text{sonst},
+    \end{cases}
+    \\[8pt]
+    \langle e^g_i \mid v^g \rangle
+    &\;\coloneqq\;
+    \begin{cases}
+        \tilde{y}^g_i
+        & \text{falls } \tilde{y}^g_i \;\geq\;
+          \dfrac{0{,}4}{m}\bigl|\{i' : \tilde{y}^g_{i'} \geq \tilde{y}^g_i\}\bigr|,
+        \\[4pt]
+        0 & \text{sonst}.
+    \end{cases}
+\end{align}
  
 % ---------------------------------------------------------------
-\subsection*{6. Verfeinerte Achsen}
+\subsection*{1.1.6 Verfeinerte Achsen}
  
 Mit den neuen Gewichten werden die Achsen erneut konstruiert:
 \begin{align}
@@ -309,7 +351,7 @@ Mit den neuen Gewichten werden die Achsen erneut konstruiert:
 \end{align}
  
 % ---------------------------------------------------------------
-\subsection*{7. Verfeinerte Korrelationen und $p$-Werte}
+\subsection*{1.1.7 Verfeinerte Korrelationen und $p$-Werte}
  
 \begin{align}
     \langle e^g_{i'} \mid r^g \rangle
@@ -322,7 +364,7 @@ $p$-Werte $|p^g\rangle$, $|p^s\rangle$ werden wie in Abschnitt~4
 aktualisiert.
  
 % ---------------------------------------------------------------
-\subsection*{8. Signaturfunktional (Gl.~22--26)}
+\subsection*{1.1.8 Signaturfunktional (Gl.~22--26)}
  
 Aus dem \emph{extended signature focus} $|v^g\rangle,\,|v^s\rangle$:
  
@@ -369,7 +411,7 @@ Korrelation, um konsistente Signaturen zu bevorzugen):
 \end{equation}
  
 % ---------------------------------------------------------------
-\subsection*{9. Qualifikation und Auswahl}
+\subsection*{1.1.9 Qualifikation und Auswahl}
  
 Ein Achsenpaar $(|a^g\rangle, |a^s\rangle)$ qualifiziert sich, wenn
 alle folgenden Bedingungen erf\"{u}llt sind:
