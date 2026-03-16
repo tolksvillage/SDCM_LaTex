@@ -30,7 +30,7 @@ Signal (Rauschen). Der folgende Ansatz verfolgt über Konvergenz die gleichzeiti
 \paragraph{Konstruktion (Konvergenzschleife mit Index $\ell$).}
 Starte mit $M_{k-1,1} \coloneqq M_{k-1}$.  In jeder Iteration~$\ell$:
 \begin{enumerate}
-  \item Berechne die un-zentrierten empirischen Varianzen aller
+  \item Berechne die unzentrierten empirischen Varianzen aller
         Sample-Spalten:
         \begin{equation}
             \langle e^s_j \mid \mathcal{v}^s_\ell \rangle
@@ -61,8 +61,8 @@ Starte mit $M_{k-1,1} \coloneqq M_{k-1}$.  In jeder Iteration~$\ell$:
                         \langle e^s_j \mid \mathcal{v}^s_\ell\rangle}}.
         \end{equation}
 \end{enumerate}
-Iteriere bis alle un-zentrierten Varianzen aller Gene und Samples
-innerhalb eines $\varepsilon$ gleich~1 sind (Konvergenziteration~$\hat\ell$).
+Iteriere bis alle unzentrierten Varianzen (Norm Spalten sowie Zeilen simultan) aller Gene und Samples
+gleich~1 sind (Konvergenziteration~$\hat\ell$).
 Das Ergebnis ist
 \begin{equation}
     M^{\mathcal{S}}_{k-1} \;\coloneqq\; M_{k-1,\hat\ell}.
@@ -136,7 +136,10 @@ Hierbei ist die gewichtete Projektion definiert als (Gl.~4):
 \begin{equation}
     \langle x \mid a \rangle^0_{|w\rangle}
     \;\coloneqq\;
-    \frac{\langle w \odot x \mid w \odot a \rangle}{\|\, w \odot a \,\|}.
+    \frac{\langle w \odot x \mid w \odot a \rangle}{\|\, w \odot a \,\|}
+        \;=\;
+    \frac{\sum_{k} w_k^2\, x_k\, a_k}
+         {\sqrt{\sum_{k} w_k^2\, a_k^2}}.
 \end{equation}
 
 Dabei bezeichnet $\odot$ das komponentenweise Produkt (Hadamard-Produkt) zweier Vektoren, d.\,h.
@@ -152,7 +155,12 @@ Unzentrierte gewichtete Korrelation (Gl.~3):
     [x \mid a]_{|w\rangle}
     \;\coloneqq\;
     \frac{\langle w \cdot x \mid w \cdot a \rangle}
-         {\|w \cdot x\| \cdot \|w \cdot a\|}.
+         {\|w \cdot x\| \cdot \|w \cdot a\|}
+                 \;=\;
+    \frac{\sum_{k} w_k^2\, x_k\, a_k}
+         {\sqrt{\sum_{k} w_k^2\, a_k^2}\cdot \sqrt{\sum_{k} w_k^2\, x_k^2}}
+         \;=\;
+         \cos (\Theta)
 \end{equation}
  
 Korrelationen aller Gene mit der Sample-Achse und aller Samples mit
@@ -165,17 +173,75 @@ der Gen-Achse:
     &\;=\; [s_{j'} \mid a^g]_{|w^g_{\mathrm{initial}}\rangle}.
 \end{align}
  
-$p$-Werte via $t$-Statistik (Supp.~Note~2):
+\subsubsection{Die $p$-Werte - Supplementary Note 2}
+
+
+In niedrigdimensionalen Räumen, d.h.\ wenn der effektive Signature
+Focus $|w^s\rangle$ bzw.\ $|w^g\rangle$ nur wenige Samples oder Gene
+mit hohem Gewicht enthält, ist es wahrscheinlicher, zufällig hohe
+Korrelationswerte zu erhalten, da Vektoren in niedrigdimensionalen
+Räumen geometrisch kaum Möglichkeiten haben, weit auseinanderzuliegen.
+Um den Einfluss solcher hohen aber insignifikanten Korrelationen zu
+reduzieren, wird für jede Korrelation $r$ ein $p$-Wert berechnet.
+
+Für eine gewöhnliche (ungewichtete) Pearson-Korrelation $r$ über $n$
+Datenpunkte folgt unter der Nullhypothese (keine echte Korrelation)
+die Teststatistik
 \begin{equation}
-    t \;=\; \frac{r\,\sqrt{\nu}}{\sqrt{1 - r^2}},
-    \qquad
-    \nu^s = \sum_j \langle e^s_j \mid w^s \rangle - 2,
-    \quad
-    \nu^g = \sum_i \langle e^g_i \mid w^g \rangle - 2.
+    t \;=\; \frac{r\,\sqrt{\nu}}{\sqrt{1 - r^2}}
 \end{equation}
-Der $p$-Wert integriert nur den jeweiligen Schwanz der
-$t$-Verteilung mit $\nu$ Freiheitsgraden (einseitig entsprechend
-dem Vorzeichen von $t$).
+exakt einer Student-$t$-Verteilung mit $\nu$ Freiheitsgraden, wobei
+$\nu = n - 2$. Die Subtraktion von 2 entsteht, weil beim Schätzen der
+Korrelation zwei Parameter aus den Daten geschätzt werden müssen: der
+Mittelwert von $x$ und der Mittelwert von $y$. Jeder geschätzte
+Parameter verbraucht einen Freiheitsgrad, sodass nach dieser Schätzung
+nur noch $n - 2$ wirklich unabhängige Informationen verbleiben.
+
+Im gewichteten Fall trägt nicht jedes Sample gleich viel zur
+Korrelationsberechnung bei. Angenommen, man hat $n = 100$ Samples,
+aber der Signature Focus enthält nur 3 Samples mit Gewicht
+$w_j \approx 1$ und die restlichen 97 haben Gewicht $w_j \approx 0$.
+Würde man $\nu = n - 2 = 98$ verwenden, würde dem $t$-Test
+fälschlicherweise suggeriert, dass 98 unabhängige Informationen
+vorliegen, obwohl die Korrelation effektiv nur auf 3 Datenpunkten
+basiert. Dies würde zu künstlich kleinen $p$-Werten führen und damit
+Signifikanz vortäuschen, wo keine ist. Ein Sample mit Gewicht
+$w_j = 0{,}5$ liefert daher nur halb so viel Information wie eines
+mit $w_j = 1$. Die tatsächlich genutzte Information wird durch die
+effektive Stichprobengröße $\sum_j w_j$ ausgedrückt, und die
+Freiheitsgrade werden entsprechend ersetzt:
+\begin{equation}
+    \nu^s \;=\; \sum_j \langle e^s_j \mid w^s \rangle - 2,
+    \qquad
+    \nu^g \;=\; \sum_i \langle e^g_i \mid w^g \rangle - 2.
+\end{equation}
+
+Die Wahrscheinlichkeitsdichte $\rho_\nu(t)$ der
+Student-$t$-Verteilung gibt an, wie wahrscheinlich ein bestimmter
+Wert $t$ allein durch Zufall auftritt, wenn die Nullhypothese gilt:
+\begin{equation}
+    \rho_\nu(t)
+    \;=\;
+    \frac{\,\Gamma\!\left(\tfrac{\nu+1}{2}\right)\,}
+         {\sqrt{\nu\pi}\;\Gamma\!\left(\tfrac{\nu}{2}\right)}
+    \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}.
+\end{equation}
+Sie ist symmetrisch um $0$ und besitzt für kleine $\nu$ ausgeprägte
+Ränder (sogenannte \emph{fat tails}), da bei wenigen Datenpunkten
+extreme $t$-Werte durch Zufall häufiger auftreten. Der $p$-Wert ist
+die Fläche unter $\rho_\nu$ ab dem beobachteten $t$ bis in den
+jeweiligen Schwanz, also die Wahrscheinlichkeit, durch Zufall einen
+mindestens so extremen $t$-Wert zu erhalten. Da $p$-Werte hier die
+Wahrscheinlichkeit quantifizieren, durch Zufall eine gleichgerichtete
+Korrelation mindestens dieser Stärke zu beobachten, integriert man
+nur den entsprechenden einseitigen Schwanz (Supp.~Note~2):
+\begin{equation}
+    p \;=\; \int_t^{\infty} \rho_\nu(t')\,dt'
+    \quad \text{für } t \geq 0,
+    \qquad
+    p \;=\; \int_{-\infty}^{t} \rho_\nu(t')\,dt'
+    \quad \text{für } t \leq 0.
+\end{equation}
  
 % ---------------------------------------------------------------
 \subsection*{5. Signature Focus $|w^g\rangle,\,|w^s\rangle$ (Gl.~17--20)}
