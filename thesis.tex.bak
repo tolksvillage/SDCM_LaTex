@@ -20,7 +20,14 @@
 
 \contentsandlists
 
-\include{SDCM_steps/step1}
+\chapter{Methoden}
+\input{SDCM_steps/step1}
+
+\include{SDCM_steps/step2}
+
+\include{SDCM_steps/step3}
+
+\include{SDCM_steps/step4}
 
 
 \end{document}

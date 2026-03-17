@@ -5,6 +5,10 @@
 \contentsline {paragraph}{Konstruktion (Konvergenzschleife mit Index $\ell $).}{2}{paragraph*.5}%
 \contentsline {paragraph}{Interpretation.}{3}{paragraph*.9}%
 \contentsline {section}{\numberline {1.2}Step 2 -- Signature axes via maximization principle}{8}{section*.27}%
-\contentsline {section}{\numberline {1.3}Step 3 -- Bi-monotonic regression and smoothening}{8}{section*.28}%
-\contentsline {section}{\numberline {1.4}Step 4 -- Signature signal $E_k$ and its dissection}{8}{section*.29}%
+\contentsline {paragraph}{1. Sortierung der Kandidaten.}{8}{paragraph*.30}%
+\contentsline {paragraph}{2. Auswahl des n\"{a}chsten Repr\"{a}sentanten.}{8}{paragraph*.31}%
+\contentsline {paragraph}{3. Akkumulation der Achsen (Gl.~9 und Gl.~10).}{8}{paragraph*.32}%
+\contentsline {paragraph}{4. Konvergenzpr\"{u}fung (Supp.~Note~6).}{9}{paragraph*.33}%
+\contentsline {section}{\numberline {1.3}Step 3 -- Bi-monotonic regression and smoothening}{10}{section*.35}%
+\contentsline {section}{\numberline {1.4}Step 4 -- Signature signal $E_k$ and its dissection}{11}{section*.36}%
 \contentsfinish 

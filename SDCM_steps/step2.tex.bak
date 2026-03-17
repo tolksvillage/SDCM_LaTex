@@ -1,0 +1,149 @@
+\section{Step 2 -- Signature axes via maximization principle}
+
+% ---------------------------------------------------------------
+\subsection*{Ziel und Grundidee}
+
+Step~2 macht die in Step~1 gefundenen initialen Achsen unabh\"{a}ngig
+vom zuf\"{a}lligen Startvertreter, indem sukzessive weitere
+repr\"{a}sentative Gene und Samples gesammelt und zu akkumulierten
+Achsen kombiniert werden, so lange bis diese gegen ein lokales
+Maximum des Signaturfunktionals $\xi$ konvergieren.
+
+Die akkumulierten Achsen nach $l$ Repr\"{a}sentanten werden mit
+$(|\mathbf{b}^g_l\rangle, |\mathbf{b}^s_l\rangle)$ bezeichnet.
+F\"{u}r $l = 1$ gilt per Definition:
+\begin{equation}
+    |\mathbf{b}^g_1\rangle \;\coloneqq\; |a^g\rangle,
+    \qquad
+    |\mathbf{b}^s_1\rangle \;\coloneqq\; |a^s\rangle,
+\end{equation}
+mit den Korrelationen $|r^g_1\rangle,\,|r^s_1\rangle$,
+Gewichten $|w^g_1\rangle,\,|w^s_1\rangle$,
+$p$-Werten $|p^g_1\rangle,\,|p^s_1\rangle$
+und Signaturfunktional $\mathcal{E}_1$ direkt aus Step~1.
+
+% ---------------------------------------------------------------
+\subsection*{Iterationsschleife \"{u}ber $l = 1, 2, 3, \ldots$}
+
+% ---------------------------------------------------------------
+\paragraph{1. Sortierung der Kandidaten.}
+
+Alle Gene und Samples werden nach ihren absoluten Korrelationen
+zur aktuellen akkumulierten Achse $|\mathbf{b}^g_l\rangle$
+bzw.\ $|\mathbf{b}^s_l\rangle$ absteigend sortiert:
+\begin{align}
+    \bigl|\langle e^g_{i_1} \mid r^g_l \rangle\bigr|
+    &\;\geq\;
+    \bigl|\langle e^g_{i_2} \mid r^g_l \rangle\bigr|
+    \;\geq\; \cdots,
+    \\[4pt]
+    \bigl|\langle e^s_{j_1} \mid r^s_l \rangle\bigr|
+    &\;\geq\;
+    \bigl|\langle e^s_{j_2} \mid r^s_l \rangle\bigr|
+    \;\geq\; \cdots
+\end{align}
+Nur die Top-Kandidaten dieser sortierten Liste werden als
+m\"{o}gliche n\"{a}chste Repr\"{a}sentanten getestet.
+
+% ---------------------------------------------------------------
+\paragraph{2. Auswahl des n\"{a}chsten Repr\"{a}sentanten.}
+
+F\"{u}r jeden Top-Kandidaten werden hypothetisch die akkumulierten
+Achsen $|\mathbf{b}^g_{l+1}\rangle$ und $|\mathbf{b}^s_{l+1}\rangle$
+nach Gl.~(9) und Gl.~(10) berechnet sowie die zugeh\"{o}rigen
+Korrelationen $|r^g_{l+1}\rangle$ und $|r^s_{l+1}\rangle$,
+$p$-Werte $|p^g_{l+1}\rangle$ und $|p^s_{l+1}\rangle$
+und das Signaturfunktional $\xi_{l+1}$.
+Ausgew\"{a}hlt wird derjenige Kandidat, der $\mathcal{E}_{l+1}$
+maximiert, und dieser wird zum Repr\"{a}sentanten $l+1$.
+
+% ---------------------------------------------------------------
+\paragraph{3. Akkumulation der Achsen (Gl.~9 und Gl.~10).}
+
+Die neue akkumulierte Sample-Achse ist das
+korrelationsgewichtete arithmetische Mittel \"{u}ber alle bisherigen
+Einzel-Achsen $|a^s_{l'}\rangle$, $l' = 1, \ldots, l+1$:
+\begin{equation}
+    |\mathbf{b}^s_{l+1}\rangle
+    \;\equiv\;
+    \frac{\displaystyle
+          \sum_{l'=1}^{l+1}
+          \bigl[\langle e^s_{l'} \mid \mathbf{b}^s_{l'} \rangle\bigr]_{|w^s_{l'}\rangle}
+          \cdot |a^s_{l'}\rangle}
+         {\displaystyle
+          \sum_{l'=1}^{l+1}
+          \Bigl|\bigl[\langle e^s_{l'} \mid \mathbf{b}^s_{l'} \rangle\bigr]_{|w^s_{l'}\rangle}\Bigr|}.
+\end{equation}
+Analog gilt f\"{u}r die Gen-Achse:
+\begin{equation}
+    |\mathbf{b}^g_{l+1}\rangle
+    \;\equiv\;
+    \frac{\displaystyle
+          \sum_{l'=1}^{l+1}
+          \bigl[\langle e^g_{l'} \mid \mathbf{b}^g_{l'} \rangle\bigr]_{|w^g_{l'}\rangle}
+          \cdot |a^g_{l'}\rangle}
+         {\displaystyle
+          \sum_{l'=1}^{l+1}
+          \Bigl|\bigl[\langle e^g_{l'} \mid \mathbf{b}^g_{l'} \rangle\bigr]_{|w^g_{l'}\rangle}\Bigr|}.
+\end{equation}
+Das Gewicht jedes Repr\"{a}sentanten $l'$ ist seine Korrelation
+zur bisherigen akkumulierten Achse.
+Repr\"{a}sentanten, die schlecht zur akkumulierten Richtung passen,
+tragen kaum bei, w\"{a}hrend gut passende Repr\"{a}sentanten vollen
+Einfluss behalten.
+
+% ---------------------------------------------------------------
+\paragraph{4. Konvergenzpr\"{u}fung (Supp.~Note~6).}
+
+Nach jeder Aktualisierung wird gepr\"{u}ft, ob beide folgenden
+Kriterien gleichzeitig erf\"{u}llt sind.
+
+Das erste Kriterium fordert geometrische Achsenkonvergenz.
+Es wird gemessen, wie stark sich die akkumulierten Achsen noch
+von Iteration zu Iteration ver\"{a}ndern, als eins minus der
+Korrelation zur vorherigen Achse:
+\begin{equation}
+    \delta^g \;\equiv\;
+    1 - \bigl[\langle \mathbf{b}^g_l \mid \mathbf{b}^g_{l+1}
+               \rangle\bigr]_{|w^g_{l+1}\rangle},
+    \qquad
+    \delta^s \;\equiv\;
+    1 - \bigl[\langle \mathbf{b}^s_l \mid \mathbf{b}^s_{l+1}
+               \rangle\bigr]_{|w^s_{l+1}\rangle}.
+\end{equation}
+Konvergenz liegt vor, wenn gilt:
+\begin{equation}
+    \frac{\delta^g + \delta^s}{2} \;<\; 10^{-3}.
+\end{equation}
+Dies entspricht einer Achsen\"{a}hnlichkeit von mehr als $0{,}999$.
+Die Konvergenz ist garantiert, da jeder neue Repr\"{a}sentant die
+akkumulierte Achse nur noch mit einem maximalen Gewicht von $1/l$
+ver\"{a}ndern kann.
+
+Das zweite Kriterium fordert eine Mindestanzahl an akkumulierten
+Repr\"{a}sentanten:
+\begin{equation}
+    l \;\geq\; \min\!\bigl(15,\; 0{,}2 \cdot m_k\bigr)
+    \qquad\text{und}\qquad
+    l \;\geq\; \min\!\bigl(15,\; 0{,}2 \cdot n_k\bigr).
+\end{equation}
+Dies sch\"{u}tzt vor zuf\"{a}lliger Fr\"{u}hkonvergenz, etwa wenn
+zwei nahezu identische Startgene vorliegen, sodass die Mindestanzahl
+sicherstellt, dass die Achse auf einer ausreichend breiten Basis
+von Repr\"{a}sentanten beruht.
+
+Sind beide Kriterien erf\"{u}llt, wird die Iteration abgebrochen
+und $\hat{l}$ ist erreicht.
+Andernfalls wird mit der Suche nach dem n\"{a}chsten Repr\"{a}sentanten
+fortgefahren, beginnend wieder bei Schritt~1.
+
+% ---------------------------------------------------------------
+\subsection*{Ergebnis von Step~2}
+
+Die finalen akkumulierten Achsen bei $\hat{l}$,
+\begin{equation}
+    \bigl(|\mathbf{b}^g_{\hat{l}}\rangle,\;
+           |\mathbf{b}^s_{\hat{l}}\rangle\bigr),
+\end{equation}
+stellen die lineare Approximation der zugrundeliegenden
+Signaturinteraktion dar und werden an Step~3 \"{u}bergeben.

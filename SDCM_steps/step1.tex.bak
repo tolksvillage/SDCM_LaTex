@@ -1,5 +1,4 @@
 
-\chapter{Methoden}
 \section{Step 1 -- Search Strategy}
  
 Für jedes Gen $|g_i\rangle$ bzw.\ Sample $|s_j\rangle$ als initiales Repräsentant
@@ -429,5 +428,7 @@ alle folgenden Bedingungen erf\"{u}llt sind:
 \end{itemize}
  
 Aus allen qualifizierten Achsenpaaren wird dasjenige mit maximalem
-$\mathcal{E}$ an \textbf{Step~2} \"{u}bergeben.
+$\xi$ an \textbf{Step~2} \"{u}bergeben.
 Falls kein Gen und kein Sample qualifiziert, terminiert SDCM.
+
+Nicht für alle Gene oder Samples werden die Achsenpaare $|a^g\rangle, |a^s\rangle$ gesucht und $\xi[|a^g\rangle, |a^s\rangle]$ berechnet. Auswahl bestimmter Gene und Samples durch \textit{look-ahead-Verfahren}, siehe \textit{Supplementary Note 5}. 
