@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  18 MAR 2026 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  22 MAR 2026 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2229,7 +2229,7 @@ Package: hologo 2021-11-16 v1.15 A logo collection with bookmark support (HO)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 19.
+h' as default language. on input line 20.
 
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2238,16 +2238,16 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (polynomials_fft.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
 
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -2277,13 +2277,13 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen431
 \MT@vwid@rightmargin=\dimen432
-LaTeX Info: Redefining \microtypecontext on input line 19.
-Package microtype Info: Applying patch `item' on input line 19.
-Package microtype Info: Applying patch `toc' on input line 19.
-Package microtype Info: Applying patch `eqnum' on input line 19.
-Package microtype Info: Applying patch `footnote' on input line 19.
-Package microtype Info: Applying patch `verbatim' on input line 19.
-LaTeX Info: Redefining \microtypesetup on input line 19.
+LaTeX Info: Redefining \microtypecontext on input line 20.
+Package microtype Info: Applying patch `item' on input line 20.
+Package microtype Info: Applying patch `toc' on input line 20.
+Package microtype Info: Applying patch `eqnum' on input line 20.
+Package microtype Info: Applying patch `footnote' on input line 20.
+Package microtype Info: Applying patch `verbatim' on input line 20.
+LaTeX Info: Redefining \microtypesetup on input line 20.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -2305,11 +2305,11 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 19.
+or `english'. on input line 20.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 20.
 
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-hyperref.sty
 Package: zref-hyperref 2025-06-08 v2.36 Module hyperref for zref (HO)
@@ -2321,14 +2321,14 @@ Package zref Info: New property: anchor on input line 56.
 Package zref-clever Info: Loaded 'english' language file.
 
 \c@zc@appendix=\count637
-Package zref Info: New property: subeq on input line 19.
+Package zref Info: New property: subeq on input line 20.
 
 Package zref-clever Info: Loaded support for 'amsmath' package.
 
 
 Package zref-clever Info: Loaded support for 'mathtools' package.
 
-Package zref Info: New property: subref on input line 19.
+Package zref Info: New property: subref on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2381,8 +2381,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 19.
-Package biblatex Info: Reference segment=0 on input line 19.
+Package biblatex Info: Reference section=0 on input line 20.
+Package biblatex Info: Reference segment=0 on input line 20.
 <<sRGB.icc>>
 (C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2475,15 +2475,32 @@ l-w-ert $\OML/lmm/m/it/12 [] \OT1/lmr/m/n/12 (-20) = 10[]\OML/lmm/m/it/12 =\OT
 ]) [9]
 \openout2 = `SDCM_steps/step3.aux'.
 
- (SDCM_steps/step3.tex) [10
+ (SDCM_steps/step3.tex [10
 
 
 
 ]
+(C:\Users\Aaron\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [11{C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.en
+c}]
+Overfull \hbox (2.7668pt too wide) in paragraph at lines 218--226
+[] []\T1/lmss/bx/n/12 (-20) Teil 3: Smoothen-ing.[] \T1/lmr/m/n/12 (-20) Das Sm
+oothen-ing $\OT1/pzc/m/it/12 S[]\OT1/lmr/m/n/12 (-20) ([])$ \T1/lmr/m/n/12 (-20
+) wird berech-net (Gl. 32).
+ []
+
+[12]
+Overfull \hbox (38.08145pt too wide) detected at line 261
+[][][][]  \OT1/lmr/m/n/12 =  [] \OMS/lmsy/m/n/12 ^^A []  \OT1/lmr/m/n/12 +  [] 
+\OMS/lmsy/m/n/12 ^^A []  \OT1/lmr/m/n/12 +  []1 \OMS/lmsy/m/n/12 ^^@ [][] ^^A \
+OT1/pzc/m/it/12 S[]\OT1/lmr/m/n/12 ([])\OML/lmm/m/it/12 :
+ []
+
+) [13]
 \openout2 = `SDCM_steps/step4.aux'.
 
-
-(SDCM_steps/step4.tex
+ (SDCM_steps/step4.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -2496,11 +2513,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) [11
+[14
 
 
 
-]
+]) [15]
 \openout2 = `polynomials_fft.aux'.
 
  (polynomials_fft.tex
@@ -2511,12 +2528,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [12
+ [16
 
 
 
 ]
-[13] [14]) [15]
+[17] [18]) [19]
 
 Package silence Warning: There were 8 warning(s) and 0 error(s).
 (silence)                I've killed 4 warning(s) and 0 error(s).
@@ -2532,13 +2549,13 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62678 strings out of 467870
- 1452510 string characters out of 5418354
- 2350968 words of memory out of 5000000
- 90093 multiletter control sequences out of 15000+600000
- 777687 words of font info for 261 fonts, out of 8000000 for 9000
+ 62828 strings out of 467870
+ 1454790 string characters out of 5418354
+ 2350969 words of memory out of 5000000
+ 90129 multiletter control sequences out of 15000+600000
+ 780726 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,23n,123p,1197b,1205s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 112i,23n,123p,1197b,1324s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbright/dpi1037
 \cmbrmb10.pk> <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/public/cmbri
 ght/dpi864\cmbrbx10.pk> <C:\Users\Aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/pu
@@ -2565,14 +2582,15 @@ Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/
 Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/A
 aron/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Aa
 ron/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Aa
-ron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
-b><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/pdftex/pdfte
-xspace.pfb><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex
--gyre/qzcmi.pfb><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/urw/z
-apfchan/uzcmi8a.pfb>
-Output written on thesis.pdf (15 pages, 435619 bytes).
+ron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pf
+b><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/pdftex/pdftexspace.pfb><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/tex-gyre/qzcmi.pfb><C:/Users/Aaron/AppData/Local/Programs/MiKTeX/fon
+ts/type1/urw/zapfchan/uzcmi8a.pfb>
+Output written on thesis.pdf (19 pages, 487779 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
- 72371 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 508 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
+ 74419 words of extra memory for PDF output out of 89155 (max. 10000000)
 

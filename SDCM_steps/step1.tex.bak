@@ -432,3 +432,4 @@ $\xi$ an \textbf{Step~2} \"{u}bergeben.
 Falls kein Gen und kein Sample qualifiziert, terminiert SDCM.
 
 Nicht für alle Gene oder Samples werden die Achsenpaare $|a^g\rangle, |a^s\rangle$ gesucht und $\xi[|a^g\rangle, |a^s\rangle]$ berechnet. Auswahl bestimmter Gene und Samples durch \textit{look-ahead-Verfahren}, siehe \textit{Supplementary Note 5}. 
+

@@ -1,9 +1,9 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'thesis.blg'
-[128] biber-MSWIN64:342> INFO - === 
-[170] Biber.pm:421> INFO - Reading 'thesis.bcf'
-[311] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
-[328] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[329] bbl.pm:779> INFO - Output to thesis.bbl
-[329] Biber.pm:132> WARN - The file 'thesis.bcf' does not contain any citations!
-[329] Biber.pm:134> INFO - WARNINGS: 1
+[192] biber-MSWIN64:342> INFO - === 
+[244] Biber.pm:421> INFO - Reading 'thesis.bcf'
+[394] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
+[415] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[415] bbl.pm:779> INFO - Output to thesis.bbl
+[416] Biber.pm:132> WARN - The file 'thesis.bcf' does not contain any citations!
+[416] Biber.pm:134> INFO - WARNINGS: 1

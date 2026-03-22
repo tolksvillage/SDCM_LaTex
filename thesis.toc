@@ -10,5 +10,14 @@
 \contentsline {paragraph}{3. Akkumulation der Achsen (Gl.~9 und Gl.~10).}{8}{paragraph*.32}%
 \contentsline {paragraph}{4. Konvergenzpr\"{u}fung (Supp.~Note~6).}{9}{paragraph*.33}%
 \contentsline {section}{\numberline {1.3}Step 3 -- Bi-monotonic regression and smoothening}{10}{section*.35}%
-\contentsline {section}{\numberline {1.4}Step 4 -- Signature signal $E_k$ and its dissection}{11}{section*.36}%
+\contentsline {paragraph}{Schritt 1: Signaturstärken berechnen.}{10}{paragraph*.40}%
+\contentsline {paragraph}{Schritt 2: Sortierordnungen bestimmen.}{10}{paragraph*.41}%
+\contentsline {paragraph}{Schritt 3: Matrix umsortieren und inneren Loop starten.}{11}{paragraph*.42}%
+\contentsline {paragraph}{Teil 1: Zeilenweise GPAV (Genregression).}{11}{paragraph*.44}%
+\contentsline {paragraph}{Teil 2: Spaltenweise GPAV (Sampleregression).}{12}{paragraph*.49}%
+\contentsline {paragraph}{Teil 3: Smoothening.}{12}{paragraph*.50}%
+\contentsline {paragraph}{Teil 4: Gewichte aktualisieren.}{13}{paragraph*.51}%
+\contentsline {paragraph}{Teil 5: Neue Signalmatrix berechnen.}{13}{paragraph*.52}%
+\contentsline {paragraph}{Konvergenzcheck.}{13}{paragraph*.56}%
+\contentsline {section}{\numberline {1.4}Step 4 -- Signature signal $E_k$ and its dissection}{14}{section*.57}%
 \contentsfinish 

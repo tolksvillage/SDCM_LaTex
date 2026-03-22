@@ -20,7 +20,7 @@ F\"{u}r $l = 1$ gilt per Definition:
 mit den Korrelationen $|r^g_1\rangle,\,|r^s_1\rangle$,
 Gewichten $|w^g_1\rangle,\,|w^s_1\rangle$,
 $p$-Werten $|p^g_1\rangle,\,|p^s_1\rangle$
-und Signaturfunktional $\mathcal{E}_1$ direkt aus Step~1.
+und Signaturfunktional $\xi_1$ direkt aus Step~1.
 
 % ---------------------------------------------------------------
 \subsection*{Iterationsschleife \"{u}ber $l = 1, 2, 3, \ldots$}
@@ -54,7 +54,7 @@ nach Gl.~(9) und Gl.~(10) berechnet sowie die zugeh\"{o}rigen
 Korrelationen $|r^g_{l+1}\rangle$ und $|r^s_{l+1}\rangle$,
 $p$-Werte $|p^g_{l+1}\rangle$ und $|p^s_{l+1}\rangle$
 und das Signaturfunktional $\xi_{l+1}$.
-Ausgew\"{a}hlt wird derjenige Kandidat, der $\mathcal{E}_{l+1}$
+Ausgew\"{a}hlt wird derjenige Kandidat, der $\xi_{l+1}$
 maximiert, und dieser wird zum Repr\"{a}sentanten $l+1$.
 
 % ---------------------------------------------------------------

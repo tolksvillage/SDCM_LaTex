@@ -16,6 +16,7 @@
 \pagecolor{mygray}
 \color{white}
 
+
 \begin{document}
 
 \contentsandlists
@@ -29,5 +30,7 @@
 
 \include{SDCM_steps/step4}
 
+
+\include{polynomials_fft}
 
 \end{document}
